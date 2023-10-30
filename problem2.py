@@ -21,10 +21,27 @@ assert triangle(1,1,4) == 0
 (2 points)
 """
 
-def triangle():
-    return
+def triangle(x,y,z):
+    length = [x,y,z]
+    length.sort()
+    a=length[0]
+    b=length[1]
+    c=length[2]
+    if c<a+b:
+        if a**2+b**2>c**2: # Acute
+            triType = 1
+
+        elif a**2+b**2==c**2: # Right Angle
+            triType = 2
+
+        elif a**2+b**2<c**2: # Obtuse
+            triType = 3
+    else:
+        triType = 0
+    return triType
 
 def tests():
+    
     assert triangle(12,5,13) == 2     
     assert triangle(5,3,3) == 3  
     assert triangle(5,15,12) == 3  
