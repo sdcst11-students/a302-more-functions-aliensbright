@@ -17,12 +17,17 @@ if they are diverging and will never have the same population
 import math
 def population(p,r,n):
     P = p*(1+r)**n
+    print(P)
     return P
 
 def equal(p1,r1,p2,r2):
-    Y = math.log(p2/p1)/(math.log(1+r1)-math.log(1+r2))
+    if (math.log(1+r1)-math.log(1+r2))==0:
+        Y = None
+    else:
+        Y = math.log(p2/p1)/(math.log(1+r1)-math.log(1+r2))
     if Y<=0:
         Y = None
+    print(Y)
     return Y
 
 def tests():
