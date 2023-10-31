@@ -14,13 +14,16 @@ Given 2 groups with given starting populations and different rates of growth,
 determine how many years in the future they will have the same population or 
 if they are diverging and will never have the same population
 """
-
+import math
 def population(p,r,n):
     P = p*(1+r)**n
     return P
 
 def equal(p1,r1,p2,r2):
-    return
+    Y = math.log(p2/p1)/(math.log(1+r1)-math.log(1+r2))
+    if Y<=0:
+        Y = None
+    return Y
 
 def tests():
     assert round(population(1000,.05, 5),0) == 1276
